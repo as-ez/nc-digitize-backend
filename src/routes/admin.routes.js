@@ -4,6 +4,7 @@ const {verifyToken} = require('../middleware/auth.middleware')
 
 const adminController = require("../controllers/admin.controllers");
 
+router.post('/', adminController.create)
 router.post("/login", adminController.login);
 router.get('/data', verifyToken, adminController.getAll);
 

@@ -35,7 +35,18 @@ const login = async (req, res, next) => {
   }
 };
 
+const create = async (req, res, next) => {
+  const user = AdminModel(req.body)
+  try {
+    await user.save()
+    return res.status(200).json({"ok": "true"})
+  } catch(e){
+    next(e)
+  }
+}
+
 module.exports = {
   getAll,
   login,
+  create
 };
