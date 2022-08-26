@@ -1,0 +1,17 @@
+[
+  {
+    "title": "test1",
+    "description": "test1",
+    "price": 1000
+  },
+  {
+    "title": "test2",
+    "description": "test2",
+    "price": 1000
+  },
+  {
+    "title": "test3",
+    "description": "test3",
+    "price": 1000
+  }
+]
