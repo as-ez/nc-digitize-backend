@@ -8,7 +8,7 @@ const cardSchema = new Schema(
     },
     include: {
       type: String,
-      required: [true, "Please add a description"],
+      required: [true, "Please add a include"],
     },
     page: {
       type: String,
@@ -18,6 +18,10 @@ const cardSchema = new Schema(
       type: Number,
       required: [true, "Please add a price"],
     },
+    categoria: {
+      type: String,
+      required: [true, "Please add a category"],
+    }
   },
   {
     timestamps: true,
