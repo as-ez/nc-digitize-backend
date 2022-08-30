@@ -9,7 +9,7 @@ const cardSchema = new Schema(
     include: {
       type: String,
       required: [true, "Please add a description"],
-    }
+    },
     page: {
       type: String,
       required: [true, "Please add a description"],
