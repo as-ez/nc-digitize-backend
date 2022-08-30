@@ -13,6 +13,10 @@ const imageSchema = new Schema(
     url: {
         type: String,
         required: [true, 'Please add a url']
+    },
+    categoria: {
+      type: String,
+      required: [true, 'Please add a categoria']
     }
   },
   {
