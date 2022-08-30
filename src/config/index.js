@@ -16,5 +16,8 @@ module.exports = {
     },
     mongo: {
         mongoUri: process.env.MONGO_URI
+    },
+    stripe: {
+        stripeSecretKey: process.env.STRIPE_SK
     }
 }
