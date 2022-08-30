@@ -1,7 +1,5 @@
 require("dotenv").config();
 const express = require("express");
-const morgan = require("morgan");
-const cors = require('cors')
 const indexRouter = require("./routes/index.routes");
 const fileUpload = require("express-fileupload");
 const jwt = require("jsonwebtoken");
@@ -13,8 +11,6 @@ app.set("port", 4000);
 app.set('secretKey',"digitize")
 
 // Middlewares
-app.use(cors());
-app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(
