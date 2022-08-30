@@ -1,7 +1,7 @@
 const dataRepository = require("../repositories/card.repositories");
 
-const getAll = async () => {
-  const data = await dataRepository.getAll();
+const getAll = async (queryFind) => {
+  const data = await dataRepository.getAll(queryFind);
   return data;
 };
 
