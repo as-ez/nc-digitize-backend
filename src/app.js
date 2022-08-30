@@ -7,7 +7,7 @@ const jwt = require("jsonwebtoken");
 const app = express();
 
 // Settings
-app.set("port", 4000);
+app.set("port", 3000);
 app.set('secretKey',"digitize")
 
 // Middlewares
