@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "nodemon src/index.js",
     "build": "babel src --out-dir dist",
-    "start": "serve -s build",
-    "heroku-postbuild": "npm run build",
+    "start": "node dist/index.js",
     "seed-imp": "node seeder.js -i",
     "seed-del": "node seeder.js -d"
   },
@@ -23,11 +22,11 @@
     "express-fileupload": "^1.4.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.5.2",
-    "serve": "^14.0.1",
     "stripe": "^10.6.0"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.18.10",
+    "colors": "^1.4.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.19"
   }
