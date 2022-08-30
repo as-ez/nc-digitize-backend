@@ -3,6 +3,7 @@ const express = require("express");
 const indexRouter = require("./routes/index.routes");
 const fileUpload = require("express-fileupload");
 const jwt = require("jsonwebtoken");
+const cors = require('cors')
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.set("port", 3000);
 app.set('secretKey',"digitize")
 
 // Middlewares
+app.use(cors({}));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(
