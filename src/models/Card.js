@@ -2,15 +2,19 @@ const { Schema, model } = require("mongoose");
 
 const cardSchema = new Schema(
   {
-    title: {
+    titulo: {
       type: String,
       required: [true, "Please add a title"],
     },
-    description: {
+    include: {
+      type: String,
+      required: [true, "Please add a description"],
+    }
+    page: {
       type: String,
       required: [true, "Please add a description"],
     },
-    price: {
+    precio: {
       type: Number,
       required: [true, "Please add a price"],
     },
