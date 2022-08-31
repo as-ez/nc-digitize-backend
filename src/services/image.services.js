@@ -12,8 +12,8 @@ const uploadImage = async (image) => {
 };
 
 const createRepo = async (body, image) => {
-  const {name, descripcion, categoria} = body
-  const img = { name, descripcion, categoria, url: image.Location};
+  const {name, description, categoria} = body
+  const img = { name, description, categoria, url: image.Location};
   const repoImg = await imageRepository.create(img);
   return repoImg
 }
