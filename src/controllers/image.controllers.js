@@ -16,7 +16,6 @@ const create = async (req,res,next)=>{
         const repoImg = await imageService.createRepo(req.body, s3Img)
         res.status(200).json(repoImg);
     }catch(e){
-        res.status(200).json({message: e.message});
         next(e)
     }
 

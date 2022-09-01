@@ -1,49 +1,17 @@
-const config = require("../config/index");
-const stripe = require("stripe")(config.stripe.stripeSecretKey);
+const stripeService = require("../services/stripe.services");
 
-const createCheckoutSession = async (req, res, next) => {
-  const domain = "http://localhost:4000";
+const pay = async (req, res, next) => {
   try {
-    const session = await stripe.checkout.sessions.create({
-      line_items: [
-        {
-          price: "price_1Lc7iFDEkmmQJZzOt1nsOLRL",
-          quantity: 1,
-        },
-      ],
-      mode: "payment",
-      success_url: "https://c6-02-m-mern-ten.vercel.app/final-confirmation-page",
-      cancel_url: "https://c6-02-m-mern-ten.vercel.app/final-confirmation-page"
-    });
-    console.log(session.url);
-
-    return res.status(200).json(session.url);
+    const stripeProduct = await stripeService.createProduct(req.body);
+    console.log(stripeProduct.default_price)
+    const stripeResponse = await stripeService.createCheckoutSession(stripeProduct.default_price);
+    return res.status(200).json(stripeResponse);
   } catch (e) {
-    next(e);
-  }
-};
-
-const createProduct = async (req, res) => {
-  try {
-    const {name, default_price_data, description} = req.body
-    const price = Number.parseInt(default_price_data)
-    const data = {
-      name: name,
-      default_price_data: {
-        unit_amount: price * 100,
-        currency: "USD",
-      },
-      description:description,
-    };
-
-    const stripeProduct = await stripe.products.create(data);
-    return res.status(200).json(stripeProduct);
-  } catch (e) {
-    return res.status(404).json(e.message);
+    //return res.status(404).json({ message: e.message });
+    next(e)
   }
 };
 
 module.exports = {
-  createCheckoutSession,
-  createProduct,
-};
+    pay
+}
