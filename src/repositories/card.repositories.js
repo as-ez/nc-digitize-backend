@@ -1,7 +1,7 @@
 const Card = require("../models/Card");
 
 const getAll = async (queryFind) => {
-  const cards = await Card.find(queryFind);
+  const cards = await Card.find(queryFind).sort({precio: 1});
   return cards;
 };
 
