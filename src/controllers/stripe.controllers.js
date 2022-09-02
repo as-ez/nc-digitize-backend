@@ -7,7 +7,6 @@ const pay = async (req, res, next) => {
     const stripeResponse = await stripeService.createCheckoutSession(stripeProduct.default_price);
     return res.status(200).json(stripeResponse);
   } catch (e) {
-    //return res.status(404).json({ message: e.message });
     next(e)
   }
 };
