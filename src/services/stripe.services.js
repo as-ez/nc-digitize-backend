@@ -15,7 +15,7 @@ const createCheckoutSession = async (url) => {
       mode: "payment",
       success_url:
         "https://c6-02-m-mern-ten.vercel.app/final-confirmation-page",
-      cancel_url: "https://c6-02-m-mern-ten.vercel.app/final-confirmation-page",
+      cancel_url: "https://c6-02-m-mern-ten.vercel.app",
     });
     console.log(session.url);
 
