@@ -19,5 +19,9 @@ module.exports = {
     },
     stripe: {
         stripeSecretKey: process.env.STRIPE_SK
+    },
+    paypal: {
+        clientID: process.env.PAYPAL_CLIENT_ID,
+        clientSecret: process.env.PAYPAL_CLIENT_SECRET
     }
 }
