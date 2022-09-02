@@ -1,5 +1,3 @@
-const paypalService = require("../services/paypal.services");
-
 const paypal = require('@paypal/checkout-server-sdk')
 const {client} = require ('../lib/paypal_client')
 
