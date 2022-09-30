@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const {verifyToken} = require('../middleware/auth.middleware')
+const {checkJwt} = require('../middleware/auth.middleware')
 
 const adminController = require("../controllers/admin.controllers");
 
-router.post('/', adminController.create)
+router.post('/register', adminController.create)
 router.post("/login", adminController.login);
-router.get('/data', verifyToken, adminController.getAll);
+router.get('/data', checkJwt, adminController.getAll);
 
 module.exports = router;
