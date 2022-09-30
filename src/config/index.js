@@ -8,14 +8,17 @@ if(!envFound){
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
+    mongo: {
+        mongoUri: process.env.MONGO_URI
+    },
+    jwt: {
+        jwtSecret: process.env.JWT_SECRET
+    },
     aws: {
         accesKeyId : process.env.ACCESS_KEY_ID,
         privateAccessKey : process.env.PRIVATE_ACCESS_KEY,
         s3BucketName: process.env.AWS_S3_BUCKET_NAME,
         region: process.env.AWS_REGION
-    },
-    mongo: {
-        mongoUri: process.env.MONGO_URI
     },
     stripe: {
         stripeSecretKey: process.env.STRIPE_SK
