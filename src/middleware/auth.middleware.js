@@ -1,26 +1,31 @@
 const jwt = require("jsonwebtoken");
+const { verifyToken } = require('../module/jwt/auth')
 
-const verifyToken = async (req, res, next) => {
-    // Get the token from the headers
+const checkJwt = async (req, res, next) => {
+  try {
+    
     const token = req.headers["x-access-token"];
-  
-    // if does not exists a token
     if (!token) {
       return res
         .status(401)
-        .send({ auth: false, message: "No Token aws Provided" });
+        .send({ auth: false, message: "No Token was Provided" });
     }
   
-    // decode the token
-    const decoded = await jwt.verify(token, "digitize");
-  
-    // save the token on request object to using on routes
+    const decoded = verifyToken(token)
+    if(!decoded) {
+      return res
+        .status(401)
+        .send({ auth: false, message: "Invalid Token" })
+    }
+
     req.userId = decoded.id;
-  
-    // continue with the next function
+    console.log(decoded)
     next();
+  }catch(e){
+    res.status(400).send("SESION_NO_VALIDA")
   }
+}
 
 module.exports = {
-    verifyToken,
+  checkJwt,
 };
